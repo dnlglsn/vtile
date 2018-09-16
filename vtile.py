@@ -157,12 +157,17 @@ if __name__ == '__main__':
     # Parse the arguments
     args, leftovers = parser.parse_known_args()
 
+    # Do everything twice because terminal windows are dumb.
+
     # First check if we are just moving it up or down
     if args.up:
         move_up(args.padding, args.margin)
+        move_up(args.padding, args.margin)
     elif args.down:
+        move_down(args.padding, args.margin)
         move_down(args.padding, args.margin)
     # If not, call as normal
     else:
         # Resize and move the window
+        main(args.location, args.rows, args.columns, args.padding, args.margin)
         main(args.location, args.rows, args.columns, args.padding, args.margin)
